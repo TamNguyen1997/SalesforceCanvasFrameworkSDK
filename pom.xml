@@ -88,6 +88,22 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>exec-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <executions>
+                    <execution><!-- Run our version calculation script -->
+                    <id>Version Calculation</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>exec</goal>
+                    </goals>
+                    <configuration>
+                        <executable>${basedir}/submodule.bat</executable>
+                    </configuration>
+                    </execution>
+                </executions>
+                </plugin>
             <!-- The maven app assembler plugin will generate a script that sets up the classpath and runs your project -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
